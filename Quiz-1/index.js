@@ -28,9 +28,15 @@ console.log(result); //Nik delmn istimew ku duduk di muk
 //Soal No 2
 
 function sortGrade (studentData) {
-    var x = studentData.sort(function (a, b) { return b[2] - a[2] } );
-    var y = x.sort(function (a, b) { return a[0] - b[0] } )
-    return y
+    studentData.sort(function (val1,val2){
+        var gradeResult = val2[2] - val1[2];
+
+        if (gradeResult==0) {
+            return val1[0] - val2[0];
+        }
+        return gradeResult;
+    });
+    return studentData;
 }
 
 var studentData = [
