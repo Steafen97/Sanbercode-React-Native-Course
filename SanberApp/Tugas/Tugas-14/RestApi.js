@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
-import { Button, Flatlist, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 const baseURL = "https://sanbers-news-api.herokuapp.com/api";
 
@@ -12,7 +12,7 @@ export default function RestApi() {
     const [title, setTitle] = useState("");
     const [value, setValue] = useState("");
 
-    const [buttonMode, setButtonMode] = useState({});
+    const [buttonMode, setButtonMode] = useState("Simpan");
 
     const [news, setNews] = useState([]);
     const [selectedNews, setSelectedNews] = useState({});
@@ -104,7 +104,7 @@ export default function RestApi() {
             <View style={styles.header}>
                 <Text style={styles.title}>Tampilan API (CRUD)</Text>
             </View>
-            <Flatlist
+            <FlatList
                 data={news}
                 keyExtractor={(item, index) => `${item._id}-${index}`}
                 renderItem={({item}) => {
